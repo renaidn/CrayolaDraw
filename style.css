@@ -257,7 +257,7 @@ ul {
     /* MAKE ITEMS HAVE CIRCULAR SHAPE */
     border-radius: 100%;
     /* CHANGE CURSOR ON HOVER */
-    cursor: url("/images/icons/cursor__eyedropper.ico"), default;
+    cursor: url("./images/icons/cursor__eyedropper.ico"), default;
     /* ACCOUNT FOR BORDER IN OVERALL SIZE OF THE ITEM (FOR CLICK & HOVER EFFECTS) */
     box-sizing: border-box;
 }

@@ -182,8 +182,6 @@ function brushMarker() {
     let brushWidth;
     // UPDATE COLOR OF THE BRUSH
     stroke(colorNow);
-    // DEFINE BRUSH DENSITY VALUE
-    let brushDensity = 95;
     // SET THE NUMBER OF TIMES WE FIND THE LINEAR INTERPOLATION IN THE FOR LOOP (AFFECTS THE DENSITY OF THE BRUSH)
     let lerps = 20;
 
@@ -195,7 +193,7 @@ function brushMarker() {
     }
     // IF SLIDER WAS TOUCHED -> UPDATE BRUSH WIDTH VARIABLE
     else {
-        brushWidth = sliderValue;
+        brushWidth = parseInt(sliderValue);
     };
 
     // IMITATE MARKER BRUSH SHAPE
@@ -205,6 +203,7 @@ function brushMarker() {
         const x = lerp(mouseX, pmouseX, i / lerps);
         const y = lerp(mouseY, pmouseY, i / lerps);
         // DRAW A LINE
+        console.log(x - brushWidth, y - brushWidth, x + brushWidth, y + brushWidth)
         line(x - brushWidth, y - brushWidth, x + brushWidth, y + brushWidth);
     }
 }
