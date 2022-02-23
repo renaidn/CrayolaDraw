@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrayolaDraw</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/images/icons/favicon.ico">
+    <!-- IMPORT GOOGLE FONT (SOURCE SANS PRO) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700;1,900&display=swap">
+    <!-- IMPORT ICONIFY SVG FRAMEWORK -->
+    <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
+    <!-- P5 -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+    <!-- JS -->
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+
+<body>
+    <!-- 1ST SECTION: TOOLS + ARTBOARD  -->
+    <section class="easel">
+        <!-- TOOLS: TOP NAV -->
+        <div class="tools" id="tools__top">
+            <!-- ARTBOARD SIZE SELECTOR -->
+            <div class="tool__dropdown">
+                <!-- BUTTON ICON -->
+                <button class="tool__btn">
+                    <img src="/images/resize.png">
+                </button>
+                <!-- DROPDOWN CONTENT -->
+                <div class="tool__dropdown-content">
+                    <li onclick="artboardSizeAdjust(540)">Square</li>
+                    <li onclick="artboardSizeAdjust(287.5)">For Instagram Stories</li>
+                    <li onclick="artboardSizeAdjust(374.2)">A4</li>
+                </div>
+            </div>
+            <!-- ARTBOARD ORIENTATION SELECTOR -->
+            <div class="tool__dropdown">
+                <!-- BUTTON ICON -->
+                <button class="tool__btn">
+                    <img src="/images/rotate.png">
+                </button>
+                <!-- DROPDOWN CONTENT -->
+                <div class="tool__dropdown-content">
+                    <li onclick="artboardOrientAdjust(1)">Portrait</li>
+                    <li onclick="artboardOrientAdjust(2)">Landscape</li>
+                </div>
+            </div>
+            <!-- SAVE ARTBOARD BUTTON -->
+            <button class="tool__btn">
+                <img src="/images/floppy-disk.png" onclick="saveUserArtboard()">
+            </button>
+            <!-- CLEAR ARTBOARD BUTTON -->
+            <button class="tool__btn">
+                <img src="/images/delete.png" onclick="clearArtboard()">
+            </button>
+
+            <!-- WEBSITE NAME -->
+            <div class="site__name">
+                <p>CrayolaDraw</p>
+            </div>
+
+            <!-- DISPLAY CURRENT COLOR INFORMATION(NAME, HEX) -->
+            <div class="color__information">
+
+                <!-- CURRENT COLOR NAME -->
+                <span id="color__name">
+                    color: Black
+                </span>
+
+                <br>
+
+                <!-- COPY TO CLIPBOARD BUTTON -->
+                <div class="color__copy-btn">
+                    <!-- CURRENT COLOR HEX -->
+                    <span id="color__hex" onclick="copyHex()">
+                        hex: #000000
+                    </span>
+                    <!-- CLIPBOARD ICON -->
+                    <span class="iconify" data-icon="ant-design:copy-outlined">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPACE FOR P5 CANVAS -->
+        <div class="artboard" id="artboard">
+
+        </div>
+
+        <!-- TOOLS: BOTTOM NAV -->
+        <div class="tools" id="tools__bottom">
+
+            <!-- BRUSH TYPE SELECTION -->
+            <button class="tool__btn">
+                <img src="/images/crayon.png" onclick="brushSelector(1)">
+            </button>
+            <button class="tool__btn">
+                <img src="/images/marker.png" onclick="brushSelector(2)">
+            </button>
+            <button class="tool__btn">
+                <img src="/images/spray.png" onclick="brushSelector(3)">
+            </button>
+            <button class="tool__btn">
+                <img src="/images/eraser.png" onclick="brushSelector(4)">
+            </button>
+
+            <!-- BRUSH SIZE SLIDER -->
+            <div class="slider__container">
+                <input type="range" min="1" max="50" value="10" class="slider" id="slider__range">
+                <span id="slider__value">
+
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2ND SECTION: COLOR PALETTE -->
+    <section class="palette">
+        <!-- PALETTE CONTENT -->
+        <ul class="palette__colors-list" id="palette__colors-list">
+
+        </ul>
+    </section>
+
+</body>
+<!-- JS FILE -->
+<script type="text/javascript" src="script__slider.js"></script>
+
+</html>

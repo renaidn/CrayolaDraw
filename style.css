@@ -1,0 +1,279 @@
+/* CUSTOM COLORS */
+:root {
+    --white-shade: whitesmoke;
+    --darkest-purple: rgb(99, 99, 141);
+    --lightest-purple: rgb(213, 213, 233);
+    --light-transitional-purple: rgb(199, 199, 218);
+    --dark-transitional-purple: rgb(159, 149, 182);
+    --black-shade: rgb(28, 20, 36);
+}
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    /* MAKE TEXT NOT SELECTABLE */
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+section {
+    height: 100vh;
+}
+
+/* 1ST SECTION */
+
+.easel {
+    width: 75%;
+    height: auto;
+}
+
+/* 1ST SECTION PT.1: TOOLS CUSTOMIZATION */
+
+#tools__top p {
+    font-size: 4vh;
+    margin: 0 14vw;
+    color: var(--darkest-purple);
+    font-weight: bold;
+
+}
+
+/* RESIZE TOOLS BUTTON ICONS */
+.tool__btn img {
+    max-height: 85%;
+    width: auto;
+}
+
+/* MAKE TOOL ICONS OF THE TOP NAV SMALLER */
+#tools__top .tool__btn img {
+    max-height: 70%;
+    width: auto;
+}
+
+.tool__btn {
+    height: 7vh;
+    width: 3.5vw;
+    /* MAKE BUTTONS HAVE CIRCULAR SHAPE */
+    border-radius: 100%;
+    background-color: var(--white-shade);
+    /* PUT SOME SPACE BETWEEN BUTTONS */
+    margin-right: 0.8vw;
+}
+
+/* CHANGE BUTTON COLOR WHEN LAST CLICKED */
+.tool__btn:focus {
+    background-color: var(--darkest-purple);
+}
+
+/* CHANGE BUTTON COLOR ON HOVER */
+.tool__btn:hover {
+    background-color: var(--dark-transitional-purple);
+}
+
+.tools {
+    height: 10%;
+    width: auto;
+    margin: 0;
+    padding: 0 1vw;
+    background-color: var(--light-transitional-purple);
+    display: flex;
+    /* SET VERTICAL CENTRAL ALIGN */
+    align-items: center;
+}
+
+/* STYLE DRODPOWN MENU */
+
+.tool__dropdown-content {
+    /* NOT DISPLAY UNTIL TOOL BUTTON IS HOVERED OVER */
+    display: none;
+    position: absolute;
+    background-color: var(--white-shade);
+    border-radius: 1vw;
+    /* SET MINIMUM WIDTH TO UNIFY DROPDOWN MENU SIZE FOR EACH OF THE BUTTONS */
+    min-width: 12vw;
+    /* ADD A BOX SHADOW TO MAKE THE CONTENT STAND OUT FROM THE BACKGROUND */
+    box-shadow: 0 0.5vw 1vw 0 var(--dark-transitional-purple);
+    /* PUT DRODOWN CONTENT TO THE FRONT */
+    z-index: 1;
+}
+
+/* CUSTOMIZE DROPDOWN ITEMS */
+.tool__dropdown-content li {
+    color: var(--black-shade);
+    display: block;
+    padding: 0.75vw 1vw;
+}
+
+/* ADD A BOTTOM BORDER ON THE FIRST ITEM OF DROPDOWN MENU */
+.tool__dropdown-content li:first-child {
+    border-bottom: 0.1vw solid var(--dark-transitional-purple);
+}
+
+/* ADD A TOP BORDER ON THE THIRD ITEM OF DROPDOWN MENU (MADE SPECIFICALLY FOR THE ARTBOARD RESIZE BUTTON) */
+.tool__dropdown-content li:nth-child(3) {
+    border-top: 0.1vw solid var(--dark-transitional-purple);
+}
+
+/* IF 1ST ITEM OF DROPDOWN MENU IS HOVERED OVER -> ROUND THE TOP BORDERS */
+.tool__dropdown-content li:first-child:hover {
+    border-radius: 1vw 1vw 0 0;
+}
+
+/* IF LAST ITEM OF DROPDOWN MENU IS HOVERED OVER -> ROUND THE BOTTOM BORDERS */
+.tool__dropdown-content li:last-child:hover {
+    border-radius: 0 0 1vw 1vw;
+}
+
+/* CONTRAST THE COLOR OF DROPDOWN MENU ITEM ON HOVER */
+.tool__dropdown-content li:hover {
+    background-color: var(--darkest-purple);
+    color: var(--white-shade);
+}
+
+/* HOVER OVER A BUTTON WITH DROPDOWN -> MAKE DRODOWN MENU CONTENT VISIBLE */
+.tool__dropdown:hover .tool__dropdown-content {
+    display: block;
+}
+
+/* STYLE COLOR INFORMATION CONTAINER (SPAN) */
+
+.color__information {
+    font-size: 2.5vh;
+}
+
+.color__copy-btn {
+    display: flex;
+    border-radius: 0.25vw;
+    color: var(--white-shade);
+    background-color: var(--darkest-purple);
+    /* CHANGE CURSOR ON HOVER */
+    cursor: copy;
+    /* CENTER BUTTON CONTENT */
+    align-items: center;
+    width: fit-content;
+    /* SET TRANSITION (FOR EFFECT ON HOVER) */
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    transition: .2s;
+}
+
+/* CONTRAST BUTTON COLORS ON HOVER */
+.color__copy-btn:hover {
+    background-color: var(--white-shade);
+    color: var(--darkest-purple);
+}
+
+/* STYLE BRUSH SIZE SLIDER */
+
+/* CONTAINER INCLUDES: SLIDER ITSELF, SLIDER VALUE */
+.slider__container {
+    width: 70%;
+    margin: 1vh 1vw;
+    display: flex;
+    /* CENTER THE CONTENT */
+    align-items: center;
+    justify-content: center;
+}
+
+/* SLIDER VALUE */
+.slider__container span {
+    font-size: 2.5vh;
+}
+
+/* THE BRUSH SIZE SLIDER */
+.slider {
+    /* OVERRIDE DEFAULT STYLE */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* CUSTOMIZE VISUALS */
+    width: 100%;
+    height: 1.5vh;
+    margin-right: 0.8vw;
+    background: var(--white-shade);
+    border-radius: 2vh;
+    /* SET TRANSPARENCY (FOR EFFECT ON HOVER) */
+    opacity: 0.7;
+    /* SET TRANSITION (FOR EFFECT ON HOVER) */
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    transition: opacity .2s;
+}
+
+/* SLIDER ON MOUTH OVER */
+.slider:hover {
+    opacity: 1;
+}
+
+/* CUSTOMIZE SLIDER THUMB */
+.slider::-webkit-slider-thumb {
+    /* OVERRIDE DEFAULT STYLE */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* CUSTOMIZE VISUALS */
+    width: 1vw;
+    height: 4.5vh;
+    border-radius: 2vh;
+    background: var(--black-shade);
+    /* CHANGE CURSOR ON HOVER */
+    cursor: pointer;
+}
+
+/* 1ST SECTION PT.2: ARTBOARD CUSTOMIZATION */
+
+#artboard {
+    height: 80%;
+    width: auto;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--lightest-purple);
+    /* CHANGE CURSOR ON HOVER */
+    cursor: crosshair;
+    /* CENTER THE CANVAS */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2ND SECTION: PALETTE */
+
+ul {
+    /* NOT SHOW ITEM MARKER */
+    list-style-type: none;
+    /* SET THE NUMBER OF COLUMNS IN A PALETTE */
+    columns: 5;
+    padding: 1vh 1vw;
+}
+
+/* CUSTOMIZE PALETTE ITEMS */
+.palette li {
+    margin: 1vh 0;
+    height: 7vh;
+    width: 3.5vw;
+    /* MAKE ITEMS HAVE CIRCULAR SHAPE */
+    border-radius: 100%;
+    /* CHANGE CURSOR ON HOVER */
+    cursor: url("/images/icons/cursor__eyedropper.ico"), default;
+    /* ACCOUNT FOR BORDER IN OVERALL SIZE OF THE ITEM (FOR CLICK & HOVER EFFECTS) */
+    box-sizing: border-box;
+}
+
+/* NULL THE TOP MARGIN OF THE FIRST PALETTE ITEM FOR EVEN SPREAD OF THE PALETTE ITEMS*/
+.palette li:first-child {
+    margin-top: 0;
+}
+
+.palette {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    margin: 0;
+    background-color: var(--white-shade);
+    /* MAKE PALETTE SCROLLABLE (VERTICALLY) */
+    overflow: scroll;
+    overflow-x: hidden;
+}
